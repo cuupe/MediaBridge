@@ -1,0 +1,28 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 24, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "desktop",
+      "displayName": "Desktop GUI (set Qt6_DIR / FFMPEG_ROOT)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/desktop",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release", "MEDIABRIDGE_GUI": "ON" }
+    },
+    {
+      "name": "cli",
+      "displayName": "Command line only",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/cli",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release", "MEDIABRIDGE_GUI": "OFF" }
+    }
+  ],
+  "buildPresets": [
+    { "name": "desktop", "configurePreset": "desktop" },
+    { "name": "cli", "configurePreset": "cli" }
+  ],
+  "testPresets": [
+    { "name": "desktop", "configurePreset": "desktop", "output": { "outputOnFailure": true } },
+    { "name": "cli", "configurePreset": "cli", "output": { "outputOnFailure": true } }
+  ]
+}

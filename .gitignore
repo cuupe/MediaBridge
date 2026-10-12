@@ -1,0 +1,14 @@
+/build*/
+/deps/
+/dist/
+/.qt/
+*.user
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+*.p12
+*.pfx
